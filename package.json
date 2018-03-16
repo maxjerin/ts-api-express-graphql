@@ -1,0 +1,21 @@
+{
+  "name": "ts-api-express-graphql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/maxjerin/ts-api-express-graphql.git",
+  "author": "maxjerin@gmail.com",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "node index.js",
+    "mock-product": "json-server ./mock-server/products.json"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^0.13.2"
+  },
+  "devDependencies": {
+    "json-server": "^0.12.1"
+  }
+}

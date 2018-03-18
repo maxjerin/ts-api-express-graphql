@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "mock-product": "json-server ./mock-server/products.json"
+    "mock": "json-server ./mock-server/db.json"
   },
   "dependencies": {
     "dotenv": "^5.0.1",

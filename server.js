@@ -13,7 +13,7 @@ app.post(
   bodyParser.json(),
   graphqlExpress({
     schema,
-    tracing: true,  
+    tracing: false,  
   })
 );
 

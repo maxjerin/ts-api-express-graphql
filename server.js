@@ -13,7 +13,7 @@ app.post(
   bodyParser.json(),
   graphqlExpress({
     schema,
-    tracing: false,  
+    tracing: false,
   })
 );
 
@@ -45,7 +45,7 @@ if (process.env.ENGINE === 'APOLLO') {
       publicFullQueryStore: "publicResponseCache"
     }
   });
-  
+
   engine.listen(
     {
       port: 4000,

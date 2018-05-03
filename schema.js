@@ -1,33 +1,10 @@
 const { makeExecutableSchema } = require('graphql-tools');
 const fetch = require('node-fetch');
+const { importSchema } = require('graphql-import');
 
 const gql = String.raw;
 
-const typeDefs = gql`
-  type Query {
-    getProductByIsin(isin: String): [Product]
-    getOrderById(id: ID): [Order]
-  }
-
-  type Order {
-    id: ID
-    sourceId: String
-    exchange: String
-    price: Int
-    instrument: String
-    quantity: Float
-    executingBroker: String
-    orderSide: String
-    orderType: String
-    assetClass: String
-    orderState: String
-  }
-
-  type Product {
-    tsMarketId: Int
-    isin: String
-  }
-`;
+const typeDefs = importSchema('ts-api.graphql');
 
 const resolvers = {
   Query: {

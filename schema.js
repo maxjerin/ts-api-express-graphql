@@ -8,26 +8,34 @@ const typeDefs = importSchema('ts-api.graphql');
 
 const resolvers = {
   Query: {
-    
     getProductByIsin: (root, args, context) => {
       const { isin } = args;
       return fetch(`http://localhost:3000/products?isin=${isin}`)
         .then(res => res.json())
         .then(products => {
-          return products.map((product) => { 
+          return products.map((product) => {
             return {
               tsMarketId: product.tsMarketId,
               isin: product.isin,
-            }
-          })
+            };
+          });
         });
     },
-
+    getProductByRIC: (root, args, context) => {
+      const { ric } = args;
+      return fetch(`http://localhost:3000/products/?ric=${ric}`)
+        .then(res => res.json());
+    },
     getOrderById: (root, args, context) => {
       const { id } = args;
       return fetch(`http://localhost:3000/orders/${id}`)
         .then(res => res.json());
-    }
+    },
+    getOrderByOrderTSId: (root, args, context) => {
+      const { order_ts_id } = args;
+      return fetch(`http://localhost:3000/orders/?order_ts_id=${order_ts_id}`)
+        .then(res => res.json());
+    },
   },
 
   Product: {

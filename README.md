@@ -1,6 +1,6 @@
 # TS API using Apollo-GraphQL and ExpressJS
-
-### Start Server
+### https://api.tradingscreen.com
+### Start Graphql Server
 
 * Start the mock server
 * Run `yarn start`

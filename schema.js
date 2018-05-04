@@ -3,6 +3,8 @@ const fetch = require('node-fetch');
 const { importSchema } = require('graphql-import');
 
 const gql = String.raw;
+const orderTypeDefs = importSchema('ts-api-order.graphql');
+const productTypeDefs = importSchema('ts-api-product.graphql');
 
 const typeDefs = importSchema('ts-api.graphql');
 

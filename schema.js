@@ -1,14 +1,11 @@
-const { makeExecutableSchema } = require('graphql-tools');
+const { mergeSchemas, makeExecutableSchema } = require('graphql-tools');
 const fetch = require('node-fetch');
 const { importSchema } = require('graphql-import');
 
-const gql = String.raw;
 const orderTypeDefs = importSchema('ts-api-order.graphql');
 const productTypeDefs = importSchema('ts-api-product.graphql');
 
-const typeDefs = importSchema('ts-api.graphql');
-
-const resolvers = {
+const productResolvers = {
   Query: {
     getProductByIsin: (root, args, context) => {
       const { isin } = args;
@@ -28,6 +25,15 @@ const resolvers = {
       return fetch(`http://localhost:3000/products/?ric=${ric}`)
         .then(res => res.json());
     },
+  },
+  Product: {
+    isin: product => product.isin,
+    tsMarketId: product => product.tsMarketId,
+  }
+};
+
+const orderResolvers = {
+  Query: {
     getOrderById: (root, args, context) => {
       const { id } = args;
       return fetch(`http://localhost:3000/orders/${id}`)
@@ -39,12 +45,6 @@ const resolvers = {
         .then(res => res.json());
     },
   },
-
-  Product: {
-    isin: product => product.isin,
-    tsMarketId: product => product.tsMarketId,
-  },
-
   Order: {
     id: order => order.id,
     sourceId: order => order.sourceId,
@@ -60,9 +60,21 @@ const resolvers = {
   }
 };
 
-const schema = makeExecutableSchema({
-  typeDefs,
-  resolvers,
+const productSchema = makeExecutableSchema({
+  typeDefs: productTypeDefs,
+  resolvers: productResolvers,
+});
+
+const orderSchema = makeExecutableSchema({
+  typeDefs: orderTypeDefs,
+  resolvers: orderResolvers,
+});
+
+const schema = mergeSchemas({
+  schemas: [
+    orderSchema,
+    productSchema,
+  ]
 });
 
 module.exports = { schema };

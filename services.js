@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const products = {
+const searchProducts = {
   byRic: (ric) => {
     return fetch(`http://localhost:3000/products/?ric=${ric}`)
         .then(res => res.json());
@@ -12,7 +12,7 @@ const products = {
   },
 };
 
-const orders = {
+const searchOrders = {
   byId: (id) => {
     return fetch(`http://localhost:3000/orders/${id}`)
         .then(res => res.json());
@@ -25,6 +25,6 @@ const orders = {
 }
 
 module.exports = {
-  products,
-  orders,
+  searchProducts,
+  searchOrders,
 };

@@ -6,8 +6,7 @@ const productTypeDefs = importSchema('ts-api-product.graphql');
 
 const productResolvers = {
   Query: {
-    getProductByIsin: (root, args, context) => {
-      const { isin } = args;
+    getProductByIsin: (root, { isin }, context) => {
       return products.byIsin(isin)
         .then(products => {
           return products.map((product) => {
@@ -18,8 +17,7 @@ const productResolvers = {
           });
         });
     },
-    getProductByRIC: (root, args, context) => {
-      const { ric } = args;
+    getProductByRIC: (root, { ric }, context) => {
       return products.byRic(ric);
     },
   },
@@ -31,12 +29,10 @@ const productResolvers = {
 
 const orderResolvers = {
   Query: {
-    getOrderById: (root, args, context) => {
-      const { id } = args;
+    getOrderById: (root, { id }, context) => {
       return orders.byId(id);
     },
-    getOrderByOrderTSId: (root, args, context) => {
-      const { order_ts_id } = args;
+    getOrderByOrderTSId: (root, { order_ts_id }, context) => {
       return orders.byTSOrderIs(order_ts_id);
     },
   },

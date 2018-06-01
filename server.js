@@ -26,11 +26,11 @@ app.get(
 
 if (process.env.ENGINE === 'EXPRESS') {
   console.log('Starting Express Server');
+  console.log(`Go to http://localhost:4000/graphiql to run queries!`);
   app.listen(4000);
 }
 
 if (process.env.ENGINE === 'APOLLO') {
-  console.log('Starting Apollo Engine');
   const engine = new ApolloEngine({
     apiKey: process.env.APOLLO_ENGINE_API_KEY,
     stores: [
@@ -52,6 +52,7 @@ if (process.env.ENGINE === 'APOLLO') {
       expressApp: app
     },
     () => {
+      console.log('Starting Apollo Engine');
       console.log(`Go to http://localhost:4000/graphiql to run queries!`);
     }
   );

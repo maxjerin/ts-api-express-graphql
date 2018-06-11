@@ -1,9 +1,0 @@
-type Query {
-    getProductByIsin(isin: String): [Product]
-    getProductByRIC(ric: String): [Product]
-}
-
-type Product {
-    tsMarketId: Int
-    isin: String
-}

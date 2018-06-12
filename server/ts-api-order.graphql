@@ -1,6 +1,16 @@
+# import Product from 'ts-api-product.graphql'
+
 type Query {
     getOrderById(id: ID): [Order]
     getOrderByOrderTSId(order_ts_id: String): [Order]
+}
+
+type Mutation {
+    createOrder(input: CreateOrderInput): Product
+}
+
+input CreateOrderInput {
+    id: String!
 }
 
 type Order {

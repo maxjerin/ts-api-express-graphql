@@ -9,6 +9,13 @@ const orderResolvers = {
       return searchOrders.byTSOrderIs(order_ts_id);
     },
   },
+  Mutation: {
+    createOrder: (root, { input: { id }}, context) => {
+      return {
+        tsMarketId: 1234
+      }
+    },
+  },
   Order: {
     id: order => order.id,
     sourceId: order => order.sourceId,

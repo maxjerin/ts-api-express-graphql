@@ -1,16 +1,21 @@
-const { searchProducts, searchOrders } = require('./services');
+const { product, order } = require('./services');
 
 const orderResolvers = {
   Query: {
     getOrderById: (root, { id }, context) => {
-      return searchOrders.byId(id);
+      return order.search.byId(id);
     },
     getOrderByOrderTSId: (root, { order_ts_id }, context) => {
-      return searchOrders.byTSOrderIs(order_ts_id);
+      return order.search.byTSOrderIs(order_ts_id);
     },
   },
   Mutation: {
-    createOrder: (root, { input: { id }}, context) => {
+    createOrder: (root, { input }, context) => {
+      order.create(input)
+        
+        .then((response) => {
+          console.warn(response)
+        })
       return {
         tsMarketId: 1234
       }
@@ -34,7 +39,7 @@ const orderResolvers = {
 const productResolvers = {
   Query: {
     getProductByIsin: (root, { isin }, context) => {
-      return searchProducts.byIsin(isin)
+      return product.search.byIsin(isin)
         .then(products => {
           return products.map((product) => {
             return {
@@ -45,7 +50,7 @@ const productResolvers = {
         });
     },
     getProductByRIC: (root, { ric }, context) => {
-      return searchProducts.byRic(ric);
+      return product.search.byRic(ric);
     },
   },
   Product: {

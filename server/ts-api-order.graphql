@@ -10,7 +10,17 @@ type Mutation {
 }
 
 input CreateOrderInput {
-    id: String!
+    executingBroker: String!,
+    instrument: Instrument!,
+    orderType: String,
+    price: Int!,
+    quantity: Int!,
+    side: String!
+}
+
+type Instrument {
+    instrumentCode: String!,
+    instrumentCodeType: String!
 }
 
 type Order {

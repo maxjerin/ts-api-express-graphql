@@ -39,5 +39,13 @@
     * https://www.apollographql.com/docs/react/advanced/fragments.html
     * https://www.apollographql.com/docs/graphql-tools/schema-transforms.html
 
+
 ### Main use cases for GraphQL
 * Lookup an order (with selective fields), and along with it its the associated Product (again with selective fields).
+
+### Use Cases
+* Lookup an order (with selective fields), and along with it its the associated Product (again with selective fields).
+
+### Build
+* React App with MVP features.
+* React Native app to replicate MVP features.

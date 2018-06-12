@@ -11,7 +11,7 @@ extend type Product {
 }
 ```
 * resolvers of mergeSchema can forward parts of queries to one of the subschemas that was passed to mergeSchema
-  * this is done using `info.mergeInfo.deleteToSchema`
+  * this is done using `info.mergeInfo.delegatteToSchema`
 
 #### graphql-import
 * graphql-import npm module can be used to import typeDefs

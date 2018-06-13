@@ -18,8 +18,19 @@
 * Run Graphql Mutation
 ```
 mutation {
-  createOrder(input: { id: "12"}) {
-    tsMarketId
+  createOrder(input: {
+    executingBroker: "TS-SS",
+    instrument: {
+      instrumentCode: "aapl"
+      instrumentCodeType: "ric"
+    }
+    orderType: "MARKET",
+    price: 109.23,
+    quantity: 100,
+    side: "BUY"
+    
+  }) {
+    executingBroker
   }
 }
 ```

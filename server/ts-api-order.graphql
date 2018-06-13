@@ -6,19 +6,33 @@ type Query {
 }
 
 type Mutation {
-    createOrder(input: CreateOrderInput): Product
+    createOrder(input: CreateOrderInput): CreateOrderOutput
 }
 
 input CreateOrderInput {
     executingBroker: String!,
     instrument: Instrument!,
     orderType: String,
-    price: Int!,
+    price: Float!,
     quantity: Int!,
     side: String!
 }
 
-type Instrument {
+input Instrument {
+    instrumentCode: String!,
+    instrumentCodeType: String!
+}
+
+type CreateOrderOutput {
+    executingBroker: String!,
+    instrument: InstrumentOutput!,
+    orderType: String,
+    price: Float!,
+    quantity: Int!,
+    side: String!
+}
+
+type InstrumentOutput {
     instrumentCode: String!,
     instrumentCodeType: String!
 }

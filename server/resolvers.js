@@ -11,14 +11,8 @@ const orderResolvers = {
   },
   Mutation: {
     createOrder: (root, { input }, context) => {
-      order.create(input)
-        
-        .then((response) => {
-          console.warn(response)
-        })
-      return {
-        tsMarketId: 1234
-      }
+      return order.create(input)
+        .then(response => response);
     },
   },
   Order: {

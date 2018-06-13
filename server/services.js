@@ -26,8 +26,8 @@ const order = {
           .then(res => res.json());
     },
   },
-  create: () => {
-    return new Promise.resolve('yay!');
+  create: (input) => {
+    return Promise.resolve(input);
   }
 }
 

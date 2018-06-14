@@ -8,7 +8,9 @@
   "private": false,
   "scripts": {
     "start": "npm-run-all -p mock-server graphql-server",
+    "debug": "npm-run-all -p mock-server graphql-server-debug",
     "graphql-server": "node server.js",
+    "graphql-server-debug": "node --inspect server.js",
     "mock-server": "json-server ./mock-server/db.json"
   },
   "dependencies": {

@@ -1,0 +1,1 @@
+Setup using https://github.com/rokoroku/react-redux-typescript-boilerplate/blob/master/webpack.config.js

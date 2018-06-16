@@ -1,8 +1,9 @@
 import * as React from 'react'
-import ReactDOM from 'react-dom'
+import * as ReactDOM from 'react-dom'
+import { hot } from 'react-hot-loader'
 
-const Index = () => {
-  return 'Hello React!'
-};
+const Index = hot(module)((): JSX.Element => {
+  return <div>{'Hello React!!'}</div>
+});
 
 ReactDOM.render(<Index />, document.getElementById('index'))

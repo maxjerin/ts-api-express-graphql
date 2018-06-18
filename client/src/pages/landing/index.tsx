@@ -3,9 +3,9 @@ import Login from '../login';
 
 const Landing = (): JSX.Element => {
     return (
-        <div>
+        <div onClick={() => console.warn('why you no acceptt')}>
             <Login />
-            {'Hello React Hot Loader!@'}
+            {'Hello React Hot Loader!!'}
         </div>
     );
 };

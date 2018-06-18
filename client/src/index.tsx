@@ -1,33 +1,23 @@
-// import 'react-hot-loader/patch'; // why is this needed?
+import 'react-hot-loader/patch'; // why is this needed?
 import * as React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import Landing from './pages/landing';
 
 const rootEl = document.getElementById('index') as HTMLElement;
 
-const Index = (): JSX.Element => {
-  return <div onClick={() => console.warn('something else')}>{'Hello React!@@'}</div>
-};
-
-render(
+const hotRender = (Component: any) => render(
   <AppContainer>
-    <Index />
+    <Component />
   </AppContainer>,
   rootEl
 );
+
+hotRender(Landing);
 
 // Hot Module Replacement API
 declare let module: { hot: any };
 
 if (module.hot) {
-  module.hot.accept('./pages/landing', () => {
-    const NewApp = require('./pages/landing');
-
-    render(
-      <AppContainer>
-        <NewApp />
-      </AppContainer>,
-      rootEl
-    );
-  });
+  module.hot.accept();
 }

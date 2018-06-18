@@ -1,5 +1,5 @@
 ### Tasks
-* [ ] graphql mutation to create an order
+* [x] graphql mutation to create an order
     * Create Order
         * [POST] https://ny-tunnel.uatprod.tradingscreen.com:443/api/om/v2/equity
         ```
@@ -18,7 +18,7 @@
          'side': 'BUY' 
         }]
         ```
-* [ ] graphql query to retrieve create order/portfolio
+* [x] graphql query to retrieve create order/portfolio
     * Retrieve Order
         * [GET] https://ny-tunnel.uatprod.tradingscreen.com:443/api/om/v2/equity
         * `order_ts_id `

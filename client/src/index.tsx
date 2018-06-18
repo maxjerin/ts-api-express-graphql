@@ -3,6 +3,11 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import Landing from './pages/landing';
+import { setConfig } from 'react-hot-loader'
+
+if (process.env.NODE_ENV === 'development') {
+  setConfig({ logLevel: 'debug' })
+}
 
 const rootEl = document.getElementById('index') as HTMLElement;
 

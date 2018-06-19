@@ -3,8 +3,8 @@ import { ChangeEvent } from 'react';
 import { user } from '../../services';
 
 const initialState = {
-    username: '',
-    password: '',
+    username: process.env.TS_USERNAME || '',
+    password: process.env.TS_PASSWORD || '',
 };
 
 type State = Readonly<typeof initialState>;

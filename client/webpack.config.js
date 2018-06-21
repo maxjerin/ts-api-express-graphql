@@ -5,9 +5,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 var Dotenv = require('dotenv-webpack');
 
-var sourcePath = path.join(__dirname, './src');
-var outPath = path.join(__dirname, './dist');
-
+var sourcePath = path.join(__dirname, 'src');
+var outPath = path.join(__dirname, 'dist');
+console.warn(sourcePath)
 module.exports = {
   context: sourcePath,
   mode: 'development',
@@ -49,7 +49,7 @@ module.exports = {
     })
   ],
   devServer: {
-    contentBase: sourcePath,
+    contentBase: outPath,
     watchContentBase: true,
     open: true,
     hot: true,

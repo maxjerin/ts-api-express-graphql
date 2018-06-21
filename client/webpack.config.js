@@ -3,6 +3,7 @@ const webpack = require('webpack');
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
+var Dotenv = require('dotenv-webpack');
 
 var sourcePath = path.join(__dirname, './src');
 var outPath = path.join(__dirname, './dist');
@@ -42,6 +43,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(), // enable HMR globally
     new webpack.NamedModulesPlugin(), // prints more readable module names in the browser console on HMR updates
     new WebpackCleanupPlugin(),
+    new Dotenv(),
     new HtmlWebpackPlugin({
       template: './index.html'
     })
